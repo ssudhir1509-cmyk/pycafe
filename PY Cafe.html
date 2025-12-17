@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pondy Home Cafe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #6f4e37;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+        .cta {
+            background-color: #6f4e37;
+            color: white;
+            padding: 30px;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+</head>
+<body>
+
+<header>
+    <h1>Pondy Home Cafe</h1>
+    <p>Authentic Tamil Home-Style Food in Pondicherry</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="javascript:void(0)" onclick="toggleMenu()">Menu</a>
+    <a href="#offers">Offers</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Welcome to Pondy Home Cafe</h2>
+    <p>Experience the taste of traditional Tamil home food made with love and quality ingredients.</p>
+</section>
+
+<section id="menu" style="display:none;">
+    <h2>Our Menu</h2>
+    
+    <h3>Veg Meals</h3>
+    <ul>
+        <li>South Indian Veg Meals (Rice, Sambar, Rasam, Poriyal, Curd) – ₹120</li>
+        <li>Mini Veg Meals – ₹90</li>
+        <li>Curd Rice with Pickle – ₹70</li>
+        <li>Lemon Rice / Tamarind Rice – ₹80</li>
+    </ul>
+
+    <h3>Non-Veg Meals</h3>
+    <ul>
+        <li>Chicken Meals (Country Style) – ₹180</li>
+        <li>Mutton Meals – ₹220</li>
+        <li>Fish Curry Meals – ₹200</li>
+        <li>Chicken Fry (Side Dish) – ₹120</li>
+    </ul>
+
+    <h3>Tamil Nadu Evening Snacks</h3>
+    <ul>
+        <li>Masala Vada (2 pcs) – ₹40</li>
+        <li>Medu Vada (2 pcs) – ₹40</li>
+        <li>Bajji / Bonda – ₹35</li>
+        <li>Sundal (Channa / Peanut) – ₹30</li>
+        <li>Filter Coffee – ₹25</li>
+        <li>Tea – ₹20</li>
+    </ul>
+</section>
+
+<section id="offers" class="cta">
+    <h2>Summer Special Offer</h2>
+    <p>Flat 20% OFF on all meals</p>
+    <button onclick="openOrder()">Order Now</button><!-- order trigger -->
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Pondicherry, India</p>
+    <p>Email: pondyhomecafe@gmail.com</p>
+    <p>Phone: +91 9443241503</p>
+</section>
+
+<footer>
+    <p>© 2025 Pondy Home Cafe | Marketing Assignment Website</p>
+</footer>
+
+
+<!-- Order Modal -->
+<div id="orderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1000;">
+  <div style="background:#fff; width:450px; max-height:80%; overflow-y:auto; margin:5% auto; padding:20px; border-radius:8px;">
+    <h3>Place Your Order</h3>
+
+    <div class="item"><p>South Indian Veg Meals – ₹120</p><button onclick="update('veg',-1)">-</button> <span id="veg">0</span> <button onclick="update('veg',1)">+</button></div>
+    <div class="item"><p>Mini Veg Meals – ₹90</p><button onclick="update('miniveg',-1)">-</button> <span id="miniveg">0</span> <button onclick="update('miniveg',1)">+</button></div>
+    <div class="item"><p>Curd Rice – ₹70</p><button onclick="update('curd',-1)">-</button> <span id="curd">0</span> <button onclick="update('curd',1)">+</button></div>
+    <div class="item"><p>Lemon / Tamarind Rice – ₹80</p><button onclick="update('lemon',-1)">-</button> <span id="lemon">0</span> <button onclick="update('lemon',1)">+</button></div>
+
+    <hr>
+    <div class="item"><p>Chicken Meals – ₹180</p><button onclick="update('chicken',-1)">-</button> <span id="chicken">0</span> <button onclick="update('chicken',1)">+</button></div>
+    <div class="item"><p>Mutton Meals – ₹220</p><button onclick="update('mutton',-1)">-</button> <span id="mutton">0</span> <button onclick="update('mutton',1)">+</button></div>
+    <div class="item"><p>Fish Curry Meals – ₹200</p><button onclick="update('fish',-1)">-</button> <span id="fish">0</span> <button onclick="update('fish',1)">+</button></div>
+    <div class="item"><p>Chicken Fry – ₹120</p><button onclick="update('chickenfry',-1)">-</button> <span id="chickenfry">0</span> <button onclick="update('chickenfry',1)">+</button></div>
+
+    <hr>
+    <div class="item"><p>Masala Vada (2 pcs) – ₹40</p><button onclick="update('vada',-1)">-</button> <span id="vada">0</span> <button onclick="update('vada',1)">+</button></div>
+    <div class="item"><p>Medu Vada (2 pcs) – ₹40</p><button onclick="update('meduvada',-1)">-</button> <span id="meduvada">0</span> <button onclick="update('meduvada',1)">+</button></div>
+    <div class="item"><p>Bajji / Bonda – ₹35</p><button onclick="update('bajji',-1)">-</button> <span id="bajji">0</span> <button onclick="update('bajji',1)">+</button></div>
+    <div class="item"><p>Sundal – ₹30</p><button onclick="update('sundal',-1)">-</button> <span id="sundal">0</span> <button onclick="update('sundal',1)">+</button></div>
+    <div class="item"><p>Filter Coffee – ₹25</p><button onclick="update('coffee',-1)">-</button> <span id="coffee">0</span> <button onclick="update('coffee',1)">+</button></div>
+    <div class="item"><p>Tea – ₹20</p><button onclick="update('tea',-1)">-</button> <span id="tea">0</span> <button onclick="update('tea',1)">+</button></div>
+
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <button onclick="closeOrder()">Cancel</button>
+    <button onclick="confirmOrder()">Confirm Order</button>
+  </div>
+</div>
+
+<script>
+const prices = {
+  veg:120, miniveg:90, curd:70, lemon:80,
+  chicken:180, mutton:220, fish:200, chickenfry:120,
+  vada:40, meduvada:40, bajji:35, sundal:30, coffee:25, tea:20
+};
+
+let cart = {};
+
+function openOrder(){ document.getElementById('orderModal').style.display='block'; }
+function closeOrder(){ document.getElementById('orderModal').style.display='none'; }
+
+function update(item,val){
+  cart[item] = (cart[item] || 0) + val;
+  if(cart[item] < 0) cart[item] = 0;
+  document.getElementById(item).innerText = cart[item];
+  calculate();
+}
+
+function calculate(){
+  let total = 0;
+  for(let i in cart){ total += cart[i] * prices[i]; }
+  document.getElementById('total').innerText = total;
+}
+
+function confirmOrder(){
+  alert('Order placed successfully! Total Amount ₹'+document.getElementById('total').innerText);
+  closeOrder();
+}
+</script>
+
+</body>
+</html>
